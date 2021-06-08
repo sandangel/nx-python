@@ -94,25 +94,25 @@ export default function (options: NxPythonSchematicSchema): Rule {
 
         project.targets.add({
           name: 'build',
-          builder: '@nx-python/nx-python:build',
+          builder: 'nx-python:build',
           options: getBuildOptions(normalizedOptions.template, project, normalizedOptions)
         })
 
         project.targets.add({
           name: 'serve',
-          builder: '@nx-python/nx-python:serve',
+          builder: 'nx-python:serve',
           options: getServeOptions(normalizedOptions.template, project),
         })
 
         project.targets.add({
           name: 'test',
-          builder: '@nx-python/nx-python:test',
+          builder: 'nx-python:test',
           options: getTestOptions(normalizedOptions.template, project),
         })
 
         project.targets.add({
           name: 'lint',
-          builder: '@nx-python/nx-python:lint',
+          builder: 'nx-python:lint',
           options: getLintOptions(normalizedOptions.template, project),
         })
 

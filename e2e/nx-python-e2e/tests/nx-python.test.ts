@@ -8,8 +8,8 @@ import {
 describe('nx-python e2e', () => {
   it('should create nx-python', async (done) => {
     const plugin = uniq('nx-python');
-    ensureNxProject('@nx-python/nx-python', 'dist/packages/nx-python');
-    await runNxCommandAsync(`generate @nx-python/nx-python:app ${plugin}`);
+    ensureNxProject('nx-python', 'dist/packages/nx-python');
+    await runNxCommandAsync(`generate nx-python:app ${plugin}`);
 
     const resultBuild = await runNxCommandAsync(`build ${plugin}`)
     expect(resultBuild.stdout).toContain(`Executing command: python3 -m py_compile`)
@@ -29,9 +29,9 @@ describe('nx-python e2e', () => {
   describe('--directory', () => {
     it('should create src in the specified directory', async (done) => {
       const plugin = uniq('nx-python');
-      ensureNxProject('@nx-python/nx-python', 'dist/packages/nx-python');
+      ensureNxProject('nx-python', 'dist/packages/nx-python');
       await runNxCommandAsync(
-        `generate @nx-python/nx-python:app ${plugin} --directory subdir`
+        `generate nx-python:app ${plugin} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`apps/subdir/${plugin}/src/hello.py`)
@@ -43,9 +43,9 @@ describe('nx-python e2e', () => {
   describe('--tags', () => {
     it('should add tags to nx.json', async (done) => {
       const plugin = uniq('nx-python');
-      ensureNxProject('@nx-python/nx-python', 'dist/packages/nx-python');
+      ensureNxProject('nx-python', 'dist/packages/nx-python');
       await runNxCommandAsync(
-        `generate @nx-python/nx-python:app ${plugin} --tags e2etag,e2ePackage`
+        `generate nx-python:app ${plugin} --tags e2etag,e2ePackage`
       );
       const nxJson = readJson('nx.json');
       expect(nxJson.projects[plugin].tags).toEqual(['e2etag', 'e2ePackage']);

@@ -10,7 +10,7 @@ describe('nx-python schematic', () => {
   const options: NxPythonSchematicSchema = { name: 'test' };
 
   const testRunner = new SchematicTestRunner(
-    '@nx-python/nx-python',
+    'nx-python',
     join(__dirname, '../../../collection.json')
   );
 

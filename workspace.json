@@ -64,7 +64,7 @@
           "builder": "@nrwl/nx-plugin:e2e",
           "options": {
             "target": "nx-python:build",
-            "npmPackageName": "@nx-python/nx-python",
+            "npmPackageName": "nx-python",
             "pluginOutputPath": "dist/packages/nx-python",
             "jestConfig": "e2e/nx-python-e2e/jest.config.js",
             "tsSpecConfig": "e2e/nx-python-e2e/tsconfig.spec.json"
